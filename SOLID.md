@@ -94,6 +94,179 @@ class PaymentProcessor {
 }
 ```
 
+# 3. Liskov Substitution Principle (LSP)
+
+Derived classes should be substitutable for their base classes.
+
+## Bad Example (Violating LSP) 
+
+A Bird class assumes all birds can fly.
+```php
+class Bird {
+    public function fly() {
+        return "Flying";
+    }
+}
+
+class Penguin extends Bird {
+    public function fly() {
+        throw new Exception("Penguins can't fly!");
+    }
+}
+```
+The Penguin class violates LSP because it breaks the expected behavior.
+
+## Good Example (Following LSP)
+
+Separate flying and non-flying birds.
+```php
+interface Bird {
+    public function move();
+}
+
+class FlyingBird implements Bird {
+    public function move() {
+        return "Flying";
+    }
+}
+
+class Penguin implements Bird {
+    public function move() {
+        return "Swimming";
+    }
+}
+```
+
+# 4. Interface Segregation Principle (ISP)
+
+A class should not be forced to implement interfaces it does not use.
+
+## Bad Example (Violating ISP)
+The Worker interface forces Robot to implement eat(), which doesn’t make sense.
+
+```php
+interface Worker {
+    public function work();
+    public function eat();
+}
+
+class HumanWorker implements Worker {
+    public function work() {
+        return "Working";
+    }
+
+    public function eat() {
+        return "Eating";
+    }
+}
+
+class RobotWorker implements Worker {
+    public function work() {
+        return "Working";
+    }
+
+    public function eat() {
+        throw new Exception("Robots don't eat!");
+    }
+}
+```
+
+## Good Example (Following ISP)
+Split interfaces into smaller ones.
+
+```php
+interface Workable {
+    public function work();
+}
+
+interface Eatable {
+    public function eat();
+}
+
+class HumanWorker implements Workable, Eatable {
+    public function work() {
+        return "Working";
+    }
+
+    public function eat() {
+        return "Eating";
+    }
+}
+
+class RobotWorker implements Workable {
+    public function work() {
+        return "Working";
+    }
+}
+```
+
+# 5. Dependency Inversion Principle (DIP)
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+## Bad Example (Violating DIP)
+The Order class is tightly coupled with MySQLDatabase.
+```php
+class MySQLDatabase {
+    public function connect() {
+        return "Connected to MySQL";
+    }
+}
+
+class Order {
+    private $db;
+
+    public function __construct() {
+        $this->db = new MySQLDatabase(); // Hard dependency
+    }
+
+    public function save() {
+        return $this->db->connect();
+    }
+}
+```
+
+## Good Example (Following DIP)
+Use dependency injection with an interface.
+
+```php
+interface Database {
+    public function connect();
+}
+
+class MySQLDatabase implements Database {
+    public function connect() {
+        return "Connected to MySQL";
+    }
+}
+
+class Order {
+    private $db;
+
+    public function __construct(Database $db) {
+        $this->db = $db;
+    }
+
+    public function save() {
+        return $this->db->connect();
+    }
+}
+
+// Now we can easily switch databases
+$database = new MySQLDatabase();
+$order = new Order($database);
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
