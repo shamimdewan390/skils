@@ -1,4 +1,4 @@
-#SOLID principles
+# SOLID principles
 
 ## Explain the SOLID principles in PHP.
 
@@ -14,8 +14,10 @@ I - Interface Segregation Principle: Avoid forcing classes to implement unused m
 
 D - Dependency Inversion Principle: Depend on abstractions, not concrete implementations.
 
-#1. Single Responsibility Principle (SRP)
+# 1. Single Responsibility Principle (SRP)
+
 ## Bad Example (Violating SRP)
+
 The User class handles both user data and email notifications.
 ```php
 class User {
