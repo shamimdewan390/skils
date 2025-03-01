@@ -14,3 +14,15 @@ I - Interface Segregation Principle: Avoid forcing classes to implement unused m
 
 D - Dependency Inversion Principle: Depend on abstractions, not concrete implementations.
 
+## bed example
+```
+class User {
+    public function saveToDatabase() {
+        // Code to save user to DB
+    }
+
+    public function sendWelcomeEmail() {
+        // Code to send email
+    }
+}
+```
