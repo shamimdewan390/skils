@@ -341,7 +341,17 @@ $smsNotification = new Notification(new SMSService());
 $smsNotification->send("Hello via SMS!");
 
 ```
+```php
+class WhatsAppService implements Notifier {
+    public function send($message) {
+        echo "Sending WhatsApp Message: $message\n";
+    }
+}
 
+// Using WhatsApp notification
+$whatsappNotification = new Notification(new WhatsAppService());
+$whatsappNotification->send("Hello via WhatsApp!");
+```
 
 
 
