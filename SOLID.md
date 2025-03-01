@@ -15,7 +15,7 @@ I - Interface Segregation Principle: Avoid forcing classes to implement unused m
 D - Dependency Inversion Principle: Depend on abstractions, not concrete implementations.
 
 ## bed example
-```
+```php
 class User {
     public function saveToDatabase() {
         // Code to save user to DB
