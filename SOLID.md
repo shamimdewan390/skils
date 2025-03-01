@@ -75,23 +75,36 @@ interface PaymentMethod {
     public function pay();
 }
 
+// PayPal Implementation
 class PayPal implements PaymentMethod {
     public function pay() {
-        // PayPal payment logic
+        echo "Processing payment through PayPal...\n";
     }
 }
 
+// Stripe Implementation
 class Stripe implements PaymentMethod {
     public function pay() {
-        // Stripe payment logic
+        echo "Processing payment through Stripe...\n";
     }
 }
 
+// PaymentProcessor
 class PaymentProcessor {
     public function process(PaymentMethod $paymentMethod) {
         $paymentMethod->pay();
     }
 }
+
+// Using PayPal
+$paypal = new PayPal();
+$processor = new PaymentProcessor();
+$processor->process($paypal); // Output: Processing payment through PayPal...
+
+// Using Stripe
+$stripe = new Stripe();
+$processor->process($stripe); // Output: Processing payment through Stripe...
+
 ```
 
 # 3. Liskov Substitution Principle (LSP)
