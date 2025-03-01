@@ -32,7 +32,7 @@ class User {
 ```
 This violates SRP because the class has two responsibilities: handling user data and sending emails.
 
-##Good Example (Following SRP)
+## Good Example (Following SRP)
 Separate classes for each responsibility.
 ```php
 class User {
