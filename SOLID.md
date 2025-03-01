@@ -49,10 +49,10 @@ class EmailService {
 ```
 
 
-#2. Open/Closed Principle (OCP)
+# 2. Open/Closed Principle (OCP)
 A class should be open for extension but closed for modification.
 
-##Bad Example (Violating OCP)
+## Bad Example (Violating OCP)
 Every time a new payment method is added, we modify the Payment class.
 
 ```php
