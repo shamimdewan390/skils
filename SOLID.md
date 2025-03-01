@@ -14,7 +14,9 @@ I - Interface Segregation Principle: Avoid forcing classes to implement unused m
 
 D - Dependency Inversion Principle: Depend on abstractions, not concrete implementations.
 
-## bed example
+#1. Single Responsibility Principle (SRP)
+## Bad Example (Violating SRP)
+The User class handles both user data and email notifications.
 ```php
 class User {
     public function saveToDatabase() {
@@ -26,3 +28,68 @@ class User {
     }
 }
 ```
+This violates SRP because the class has two responsibilities: handling user data and sending emails.
+
+##Good Example (Following SRP)
+Separate classes for each responsibility.
+```php
+class User {
+    public function saveToDatabase() {
+        // Code to save user to DB
+    }
+}
+
+class EmailService {
+    public function sendWelcomeEmail(User $user) {
+        // Code to send email
+    }
+}
+```
+
+
+#2. Open/Closed Principle (OCP)
+A class should be open for extension but closed for modification.
+
+##Bad Example (Violating OCP)
+Every time a new payment method is added, we modify the Payment class.
+
+```php
+class Payment {
+    public function process($type) {
+        if ($type == 'paypal') {
+            // Process PayPal
+        } elseif ($type == 'stripe') {
+            // Process Stripe
+        }
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
