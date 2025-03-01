@@ -268,7 +268,79 @@ class Order {
 $database = new MySQLDatabase();
 $order = new Order($database);
 ```
+## another example
 
+
+## Bad Example (Violating DIP)
+The Order class is tightly coupled with MySQLDatabase.
+```php
+class EmailService {
+    public function sendEmail($message) {
+        echo "Sending Email: $message\n";
+    }
+}
+
+class Notification {
+    private $emailService;
+
+    public function __construct() {
+        $this->emailService = new EmailService(); // Direct dependency (Bad)
+    }
+
+    public function send($message) {
+        $this->emailService->sendEmail($message);
+    }
+}
+
+// Usage
+$notification = new Notification();
+$notification->send("Hello, this is an email notification!");
+
+```
+
+## Good Example (Following DIP)
+Use dependency injection with an interface.
+
+```php
+// Step 1: Define an abstraction (interface)
+interface Notifier {
+    public function send($message);
+}
+
+// Step 2: Create concrete implementations
+class EmailService implements Notifier {
+    public function send($message) {
+        echo "Sending Email: $message\n";
+    }
+}
+
+class SMSService implements Notifier {
+    public function send($message) {
+        echo "Sending SMS: $message\n";
+    }
+}
+
+// Step 3: Notification class depends on abstraction
+class Notification {
+    private $notifier;
+
+    public function __construct(Notifier $notifier) {
+        $this->notifier = $notifier; // Inject dependency
+    }
+
+    public function send($message) {
+        $this->notifier->send($message);
+    }
+}
+
+// Usage
+$emailNotification = new Notification(new EmailService());
+$emailNotification->send("Hello via Email!");
+
+$smsNotification = new Notification(new SMSService());
+$smsNotification->send("Hello via SMS!");
+
+```
 
 
 
