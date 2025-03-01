@@ -67,8 +67,32 @@ class Payment {
 }
 ```
 
+Good Example (Following OCP)
 
+Use polymorphism to extend functionality without modifying existing code.
+```php
+interface PaymentMethod {
+    public function pay();
+}
 
+class PayPal implements PaymentMethod {
+    public function pay() {
+        // PayPal payment logic
+    }
+}
+
+class Stripe implements PaymentMethod {
+    public function pay() {
+        // Stripe payment logic
+    }
+}
+
+class PaymentProcessor {
+    public function process(PaymentMethod $paymentMethod) {
+        $paymentMethod->pay();
+    }
+}
+```
 
 
 
