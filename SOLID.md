@@ -86,6 +86,20 @@ class EmailService {
 # 2. Open/Closed Principle (OCP)
 A class should be open for extension but closed for modification.
 
+এটা মানে হলো:
+
+Open for Extension (এক্সটেনশন)
+
+নতুন ফিচার যোগ করা যাবে।
+
+পুরনো কোডকে চেঞ্জ না করেই নতুন ফাংশনালিটি যোগ করা যায়।
+
+Closed for Modification (মডিফিকেশন)
+
+বিদ্যমান কোড পরিবর্তন করা যাবে না।
+
+কারণ যদি পরিবর্তন করা হয়, তাহলে পুরনো ফিচার ভেঙে যেতে পারে।
+
 ## Bad Example (Violating OCP)
 Every time a new payment method is added, we modify the Payment class.
 
