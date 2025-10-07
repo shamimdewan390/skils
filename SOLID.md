@@ -159,6 +159,13 @@ $processor->process($stripe); // Output: Processing payment through Stripe...
 
 Derived classes should be substitutable for their base classes.
 
+কথায় সংজ্ঞা:
+
+“যে কোনো child class, তার parent class-এর জায়গায় ব্যবহার করা যায় এবং কোড ঠিকভাবে কাজ করবে।”
+
+অর্থাৎ: Parent class-এর behaviour child class-এর মাধ্যমে ভাঙা যাবে না।
+এই principle Barbara Liskov নামের বিজ্ঞানীর নামে নামকরণ করা হয়েছে।
+
 ## Bad Example (Violating LSP) 
 
 A Bird class assumes all birds can fly.
