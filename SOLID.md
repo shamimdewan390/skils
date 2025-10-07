@@ -412,7 +412,60 @@ $whatsappNotification = new Notification(new WhatsAppService());
 $whatsappNotification->send("Hello via WhatsApp!");
 ```
 
+### Another example
 
+```php
+<?php
+
+// Interface (Contract)
+interface MessageService {
+    public function sendMessage($msg);
+}
+
+// EmailService implements the interface
+class EmailService implements MessageService {
+    public function sendMessage($msg) {
+        echo "Email sent: $msg<br>";
+    }
+}
+
+// SMSService implements the interface
+class SMSService implements MessageService {
+    public function sendMessage($msg) {
+        echo "SMS sent: $msg<br>";
+    }
+}
+
+// User class depends on interface, not concrete class
+class User {
+    private $messageService;
+
+    // Dependency Injection
+    public function __construct(MessageService $messageService) {
+        $this->messageService = $messageService;
+    }
+
+    public function notify($msg) {
+        $this->messageService->sendMessage($msg);
+    }
+}
+
+// =======================
+// Usage Examples
+// =======================
+
+// 1️⃣ Email Notification
+$emailService = new EmailService();
+$user1 = new User($emailService);
+$user1->notify("Hello via Email!"); // Output: Email sent: Hello via Email!
+
+// 2️⃣ SMS Notification
+$smsService = new SMSService();
+$user2 = new User($smsService);
+$user2->notify("Hello via SMS!"); // Output: SMS sent: Hello via SMS!
+?>
+
+```
 
 
 
