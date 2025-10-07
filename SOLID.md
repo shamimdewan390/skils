@@ -16,9 +16,43 @@ D - Dependency Inversion Principle: Depend on abstractions, not concrete impleme
 
 # 1. Single Responsibility Principle (SRP)
 
+👉 একটি ক্লাসের শুধু একটাই কাজ থাকা উচিত।
+
+অর্থাৎ, এক ক্লাস একাধিক দায়িত্ব নেবে না।
+যদি এক ক্লাসে অনেক কাজ রাখো (যেমন: ডাটাবেজ, ইমেইল, লগ সব একসাথে), তাহলে কোড মেইনটেইন করা কঠিন হয়।
+
 ## Bad Example (Violating SRP)
 
 The User class handles both user data and email notifications.
+```php
+<?php
+// ❌ খারাপ উদাহরণ
+class User {
+    public function createUser($data) {
+        // ইউজার তৈরি
+    }
+
+    public function sendWelcomeEmail($email) {
+        // ইমেইল পাঠানো
+    }
+}
+
+```
+```php
+✅ ভালো উদাহরণ:
+class User {
+    public function createUser($data) {
+        // ইউজার তৈরি
+    }
+}
+
+class EmailService {
+    public function sendWelcomeEmail($email) {
+        // ইমেইল পাঠানো
+    }
+}
+```
+Another example:
 ```php
 class User {
     public function saveToDatabase() {
