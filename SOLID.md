@@ -275,6 +275,9 @@ class RobotWorker implements Workable {
 # 5. Dependency Inversion Principle (DIP)
 High-level modules should not depend on low-level modules. Both should depend on abstractions.
 
+সহজভাবে:
+কোড সরাসরি concrete ক্লাস ব্যবহার না করে interface বা abstraction ব্যবহার করবে।
+
 ## Bad Example (Violating DIP)
 The Order class is tightly coupled with MySQLDatabase.
 ```php
