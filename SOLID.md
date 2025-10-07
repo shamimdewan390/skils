@@ -209,6 +209,10 @@ class Penguin implements Bird {
 
 A class should not be forced to implement interfaces it does not use.
 
+👉 বড় ইন্টারফেসকে ছোট ছোট নির্দিষ্ট ইন্টারফেসে ভাগ করা উচিত।
+
+অর্থাৎ, ক্লাসকে এমন ইন্টারফেস implement করতে বাধ্য কোরো না যার কিছু মেথড তার দরকারই নেই।
+
 ## Bad Example (Violating ISP)
 The Worker interface forces Robot to implement eat(), which doesn’t make sense.
 
