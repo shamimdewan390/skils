@@ -1,6 +1,17 @@
+# install claude with copilot
 
+```bash
+brew install --cask claude-code
+```
+```bash
+claude --version
+```
 
-## paste in 
+```bash
+code ~/.claude/settings.json
+```
+
+## paste below code in  ```~/.claude/settings.json```
 ```javacript
 {
   "env": {
@@ -30,3 +41,12 @@ or
  rm -rf .claude.json.backup
  rm -rf .claude.json
 ```
+
+```bash
+claude
+```
+> Authenticate: On first run, it will open your browser to log in with your Claude.ai account (you need a Claude Pro or Max subscription)
+
+
+
+Ghostty
