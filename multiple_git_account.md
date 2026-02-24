@@ -3,31 +3,6 @@
 
 ---
 
-## Problem 1: Permission Denied Error
-
-**Q:** Getting this error when pushing:
-```
-git push origin main
-ERROR: Permission to shamimdewan390/oop.git denied to shamimdewan.
-fatal: Could not read from remote repository.
-```
-
-**A:** Git is authenticating as `shamimdewan` instead of `shamimdewan390`. Fix it by:
-
-1. **Clear stored credentials** (Windows: Credential Manager, Mac: Keychain)
-2. **Update the remote URL** to use SSH:
-   ```bash
-   git remote set-url origin git@github.com:shamimdewan390/oop.git
-   ```
-3. **Use a Personal Access Token (PAT)** — GitHub no longer accepts passwords
-4. **Check SSH key is linked to the right account:**
-   ```bash
-   ssh -T git@github.com
-   # Should say: Hi shamimdewan390! You've successfully authenticated...
-   ```
-
----
-
 ## Problem 2: Can I Control 2 GitHub Accounts at the Same Time?
 
 **Q:** Is it possible to push to both `shamimdewan` and `shamimdewan390` from the same machine?
