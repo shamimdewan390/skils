@@ -20,7 +20,7 @@ ssh-keygen -t ed25519 -C "shamimdewan390@email.com" -f ~/.ssh/id_shamimdewan390
 
 ### Step 2 — Create SSH Config File
 ```bash
-nano ~/.ssh/config
+vim ~/.ssh/config
 ```
 Paste:
 ```
