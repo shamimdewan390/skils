@@ -98,7 +98,7 @@ How to write the config file?
 
 **A:**
 ```bash
-nano ~/.ssh/config
+vim ~/.ssh/config
 ```
 ```
 # Account 1 - shamimdewan (existing key)
@@ -113,9 +113,10 @@ Host github-shamimdewan390
     User git
     IdentityFile ~/.ssh/id_shamimdewan343
 ```
-Save: **Ctrl + X → Y → Enter**
 
 Then add the public key to shamimdewan390's GitHub:
+Copy each public key and add to the respective GitHub account under **Settings → SSH and GPG keys → New SSH key**.
+
 ```bash
 cat ~/.ssh/id_shamimdewan343.pub
 ```
@@ -135,21 +136,6 @@ But got error: `fatal: not a git repository`
 ```bash
 cd ~/Documents/Prectices/oop
 git remote set-url origin git@github-shamimdewan390:shamimdewan390/oop.git
-```
-
----
-
-## Problem 6: Push Error — Branch Name Typo
-
-**Q:** Getting this error:
-```
-git push origin mian
-error: src refspec mian does not match any
-```
-
-**A:** Typo in branch name — `mian` instead of `main`:
-```bash
-git push origin main
 ```
 
 ---
