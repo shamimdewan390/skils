@@ -129,7 +129,7 @@ cat ~/.ssh/id_shamimdewan343.pub
 
 ---
 
-## Problem 7: Do I Need to Run `git remote set-url` for Every Project?
+## Problem 4: Do I Need to Run `git remote set-url` for Every Project?
 
 **Q:** Will `git remote set-url origin git@github-shamimdewan390:shamimdewan390/oop.git` be needed for every project repo?
 
