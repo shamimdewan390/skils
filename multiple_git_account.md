@@ -1,1 +1,45 @@
 > is this possible to push shamimdewan and shamimdewan390 2 separate account ,  i want to controll 2 account same time.. is this possible?
+
+
+Yes, absolutely possible! Here's how to manage 2 GitHub accounts on the same machine:
+The Best Way — SSH Config (Recommended)
+Step 1: Generate 2 SSH keys
+
+
+```bash
+# For account 1
+ssh-keygen -t ed25519 -C "shamimdewan@email.com" -f ~/.ssh/id_shamimdewan
+
+# For account 2
+ssh-keygen -t ed25519 -C "shamimdewan390@email.com" -f ~/.ssh/id_shamimdewan390
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
