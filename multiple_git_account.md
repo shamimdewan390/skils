@@ -52,7 +52,7 @@ Hi shamimdewan! You've successfully authenticated, but GitHub does not provide s
 Hi shamimdewan390! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-### Step 5 — Set Remote URL Per Project
+### Step 5 — Set Remote URL Per Project (go to project directory)
 ```bash
 # For shamimdewan repos
 git remote set-url origin git@github-shamimdewan:shamimdewan/REPO-NAME.git
