@@ -3,7 +3,7 @@
 
 ---
 
-## Problem 2: Can I Control 2 GitHub Accounts at the Same Time?
+## Problem 1: Can I Control 2 GitHub Accounts at the Same Time?
 
 **Q:** Is it possible to push to both `shamimdewan` and `shamimdewan390` from the same machine?
 
@@ -48,7 +48,9 @@ ssh -T git@github-shamimdewan390
 
 you can see like this:
 ```bash
-**dfasdf**
+Hi shamimdewan! You've successfully authenticated, but GitHub does not provide shell access.
+Hi shamimdewan390! You've successfully authenticated, but GitHub does not provide shell access.
+```
 
 ### Step 5 — Set Remote URL Per Project
 ```bash
@@ -72,7 +74,7 @@ git config user.email "shamimdewan390@email.com"
 
 ---
 
-## Problem 3: SSH Key Already Exists for shamimdewan — How to Generate a New One?
+## Problem 2: SSH Key Already Exists for shamimdewan — How to Generate a New One?
 
 **Q:** SSH key for `shamimdewan` already exists. How to generate a new one for `shamimdewan390` without touching the old one?
 
@@ -91,7 +93,7 @@ ls ~/.ssh/
 
 ---
 
-## Problem 4: Writing the SSH Config File
+## Problem 3: Writing the SSH Config File
 
 **Q:** SSH key files found:
 ```
@@ -123,23 +125,6 @@ Copy each public key and add to the respective GitHub account under **Settings �
 
 ```bash
 cat ~/.ssh/id_shamimdewan343.pub
-```
-
----
-
-## Problem 5: Testing Authentication
-
-**Q:** After config setup, both accounts authenticated successfully:
-```
-Hi shamimdewan! You've successfully authenticated...
-Hi shamimdewan390! You've successfully authenticated...
-```
-But got error: `fatal: not a git repository`
-
-**A:** You were inside `~/.ssh` folder, not your project folder. Navigate to your project first:
-```bash
-cd ~/Documents/Prectices/oop
-git remote set-url origin git@github-shamimdewan390:shamimdewan390/oop.git
 ```
 
 ---
